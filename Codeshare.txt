@@ -1,0 +1,31 @@
+package test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test1 {
+
+	public static void main(String[] args) throws InterruptedException  {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Automation Testing\\driver\\1\\chromedriver.exe");
+		ChromeDriver driver= new ChromeDriver();
+			driver.get("https://codeshare.io/");
+			driver.manage().window().maximize();
+			
+			driver.findElement(By.xpath("//*[@id=\"home\"]/section[1]/div/div[1]/p[1]/a")).click();  
+		    driver.findElement(By.xpath("//*[@id=\"editor\"]/div/div/div[6]/div[1]/div/div/div/div[5]/div/pre")).sendKeys("#include<stdio.h>",Keys.ENTER); 
+		    driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+		   driver.switchTo().defaultContent(); 
+		  
+		   Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id=\"editor\"]/div/div/div[6]/div[1]/div/div/div/div[5]/div[2]/pre")).sendKeys("#include<conio.h>",Keys.ENTER);
+			Thread.sleep(2000);
+		
+			driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "\t");
+			driver.switchTo().defaultContent(); 
+			   Thread.sleep(2000);
+
+	}
+
+}
